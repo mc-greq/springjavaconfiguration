@@ -2,18 +2,19 @@ package example.nio;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class Main {
+public class SwimConfigRun {
 
     public static void main(String[] args) {
 
         // use spring config class to create context
         AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(SportConfig.class);
+                new AnnotationConfigApplicationContext(MyLoggerConfig.class, SportConfig.class);
 
         // retrieve beans from the container
-        Coach theCoach = context.getBean("tennisCoach", Coach.class);
+        Coach theCoach = context.getBean("swimCoach", Coach.class);
 
-        theCoach.getDailyFortune();
+        System.out.println(theCoach.getDailyWorkOut());
+        System.out.println(theCoach.getDailyFortune());
 
         context.close();
     }

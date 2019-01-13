@@ -1,9 +1,8 @@
 package example.nio;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -12,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-@Component
+@Configuration
 public class MyLoggerConfig {
 
 
@@ -21,13 +20,13 @@ public class MyLoggerConfig {
     @Value("FINE")
     private String printedLoggerLevel;
 
-    public void setRootLoggerLevel(String rootLoggerLevel){
-        this.rootLoggerLevel = rootLoggerLevel;
-    }
-
-    public void setPrintedLoggerLevel(String printedLoggerLevel) {
-        this.printedLoggerLevel = printedLoggerLevel;
-    }
+//    public void setRootLoggerLevel(String rootLoggerLevel){
+//        this.rootLoggerLevel = rootLoggerLevel;
+//    }
+//
+//    public void setPrintedLoggerLevel(String printedLoggerLevel) {
+//        this.printedLoggerLevel = printedLoggerLevel;
+//    }
 
     @PostConstruct
     public void initLogger(){
