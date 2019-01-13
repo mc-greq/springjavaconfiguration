@@ -11,10 +11,14 @@ public class SwimConfigRun {
                 new AnnotationConfigApplicationContext(MyLoggerConfig.class, SportConfig.class);
 
         // retrieve beans from the container
-        Coach theCoach = context.getBean("swimCoach", Coach.class);
+        SwimCoach theCoach = context.getBean("swimCoach", SwimCoach.class);
 
         System.out.println(theCoach.getDailyWorkOut());
         System.out.println(theCoach.getDailyFortune());
+
+        // calling swimcoach methods
+        System.out.println(theCoach.getEmail());
+        System.out.println(theCoach.getTeam());
 
         context.close();
     }
